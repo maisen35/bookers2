@@ -17,23 +17,19 @@ class User < ApplicationRecord
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: {maximum: 50}
 
-
-
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
-  
+
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
-  
+
   def unfollow(user_id)
     relationships.find_by(followed: user_id).destroy
   end
-  
+
   def following?(user)
-    followings.includes?(user)
+    followings.include?(user)
   end
-
-
 end
