@@ -1,8 +1,8 @@
 <% if current_user.following?(@user) %>
   <table>
-    <%= @user.each do |user| %>
+    <% @user.each do |user| %>
       <tr>
-        <td><%= user.get_profile_image, size: '40x40' %></td>
+        <td><%=image_tag user.get_profile_image, size:'40x40' %></td>
         <td><%= user.name %></td>
         <td>フォロー数：<%= user.following.count %></td>
         <td>フォロワー数：<%= user.followed.count %></td>
@@ -15,4 +15,3 @@
 <% else %>
   <h2>ユーザーはいません</h2>
 <% end %>
-  
