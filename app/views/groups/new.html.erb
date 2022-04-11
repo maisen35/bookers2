@@ -1,0 +1,22 @@
+<div class="contaner">
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <h2>Create Group</h2>
+      <%= form_with model: @group do |f| %>
+        <div>
+          <%= f.label :name, 'グループ名' %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div>
+          <%= f.label :introduction, '紹介文' %>
+          <%= f.text_area :introduction, class: 'form-control' %>
+        </div>
+        <div>
+          <%= f.label :image_id, 'グループ画像' %>
+          <%= f.file_field :image_id %>
+        </div>
+        <%= f.submit 'Create Group', class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</div>
