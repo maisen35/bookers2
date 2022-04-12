@@ -13,6 +13,7 @@
           <th></th>
           <th>名前</th>
           <th>紹介文</th>
+          <th>メンバー数</th>
           <th></th>
         </tr>
         <% @groups.each do |group| %>
@@ -24,6 +25,7 @@
               <% end %>
             </td>
             <td><%= group.introduction %></td>
+            <td><%= group.users.count %></td>
             <td>
               <% if current_user.id == group.order_id %>
                 <%= link_to 'Edit', edit_group_path(group), class: 'btn btn-success' %>
